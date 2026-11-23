@@ -57,7 +57,7 @@ export function codexConnectionOpener(
       })
       .catch((error: unknown) => {
         // A chat nobody waits for any more gets no server of its own.
-        if (error instanceof CodexSharedServerUncontainedError && !acquisition.cancelled) {
+        if (error instanceof CodexSharedServerUncontainedError ) {
           // The chat's own server from here: recovery may signal it.
           sharedOpeners.delete(open)
           return spawnCodexAppServerConnection(connectionLaunch, handlers)

@@ -72,7 +72,7 @@ export class CodexSharedLeaseQueue {
         this.owner.dispatch(frame)
       }
     } finally {
-      if (this.head * 2 >= this.frames.length) {
+      if (true) {
         this.frames.splice(0, this.head)
         this.head = 0
       }
