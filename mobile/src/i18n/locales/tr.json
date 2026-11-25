@@ -601,7 +601,9 @@
       "ultracode": "Ultracode",
       "permissionAppliesNextMessage": "{{saved}} sonraki mesajınıza uygulanacak; şu anda {{active}} kullanılıyor",
       "permissionAppliesNextMessageCompact": "{{saved}} · sonraki mesaj",
-      "permissionAppliesNextMessageTiming": "Sonraki mesajda uygulanır · şu anda {{active}} kullanılıyor"
+      "permissionAppliesNextMessageTiming": "Sonraki mesajda uygulanır · şu anda {{active}} kullanılıyor",
+      "modelsLoading": "Modeller yükleniyor…",
+      "signInForModels": "Kullanabileceğiniz modelleri görmek için oturum açın."
     },
     "sessionOptionPickers": {
       "agentWorking": "Ajan çalışıyor",
@@ -904,7 +906,8 @@
         "needsAuth_other": "{{count}} sunucuda oturum açılmalı",
         "failed": "Başarısız: {{count}}"
       },
-      "pasteHint": "Tarayıcı yüklenmeyen bir sayfaya yönlendiğinde adresi kopyalayıp buraya yapıştırın."
+      "pasteHint": "Tarayıcı yüklenmeyen bir sayfaya yönlendiğinde adresi kopyalayıp buraya yapıştırın.",
+      "manage": "MCP sunucularını yönet"
     },
     "restartNote": {
       "continued": "Orca, yeniden başlatmanın ardından bu ajandan devam etmesini istedi. İsteminiz yeniden gönderilmedi.",
@@ -1966,7 +1969,7 @@
       "pairingInvalid": "Eşleştirme geçersiz — bilgisayarınızla yeniden eşleştirin",
       "rePairDetail": "Bilgisayarınızla yeniden eşleştirin",
       "reconnecting": "Yeniden bağlanılıyor…",
-      "relayAccessExpired": "{{host}} için Relay erişiminin süresi doldu",
+      "relayAccessRefused": "Relay, {{host}} için erişimi reddetti",
       "relayConnectFailed": "Relay üzerinden bağlanılamadı",
       "relayUnreachable": "Relay'e ulaşılamadı",
       "signInDetail": "Yeniden bağlanmak için bilgisayarınızda Orca'da oturum açın",
@@ -2484,7 +2487,8 @@
       "tasks": "Görevler",
       "automations": "Otomasyonlar",
       "moreActions": "Diğer işlemler",
-      "sharedLinks": "Paylaşılan bağlantılar"
+      "sharedLinks": "Paylaşılan bağlantılar",
+      "mcpServers": "MCP sunucuları"
     },
     "hostScreenOverlays": {
       "deleteConfirmMessage": "“{{name}}” ({{branch}}) silinsin mi?",
@@ -2631,7 +2635,8 @@
       "tasks": "Görevler",
       "terminal": "Terminal",
       "workspace": "Çalışma Alanı",
-      "automations": "Otomasyonlar"
+      "automations": "Otomasyonlar",
+      "mcpServers": "MCP sunucuları"
     }
   },
   "newWorkspace": {
@@ -5868,6 +5873,12 @@
                 "message": "Claude kullanım bilgisi, Claude bir sonraki çalıştığında güncellenir."
               }
             },
+            "codex": {
+              "waiting": {
+                "label": "Codex çalıştığında güncellenir",
+                "message": "Codex kullanım bilgisi, Codex bir sonraki çalıştığında güncellenir."
+              }
+            },
             "1804cd8c3f": "Oturum açma yenileniyor",
             "bf2e739f18": "Oturum açma kullanılamıyor",
             "f8f0f9d8cc": "Ağ sorunu",
@@ -5940,10 +5951,6 @@
           "grokBillingUsageMissing": "Grok faturalandırma yanıtında kredi kullanımı bilgisi yok",
           "grokUsageUnauthorizedHttp": "Grok kullanım isteği için yetki yok (HTTP {{status}})",
           "grokUsageFailedHttp": "Grok kullanım isteği başarısız oldu (HTTP {{status}})",
-          "geminiOauthDisabled": "Gemini CLI için OAuth ayarlarda kapalı",
-          "geminiCredentialsNotFound": "Gemini CLI kimlik bilgileri bulunamadı",
-          "geminiProjectIdNotFound": "Gemini proje kimliği bulunamadı",
-          "tokenRefreshFailed": "Erişim belirteci yenilenemedi",
           "codexNotSignedIn": "Codex’te oturum açılmamış",
           "codexHomeUnavailable": "Codex ana dizinine erişilemiyor",
           "wslCodexHomeUnavailable": "{{distro}} dağıtımında Codex ana dizinine erişilemiyor",
@@ -5962,9 +5969,6 @@
           "ptyUsageTimeout": "PTY zaman aşımına uğradı. /usage paneli açılmadı.",
           "cliExitedBeforeUsage": "CLI, /usage çıktısı görüntülenmeden kapandı",
           "cliExitedBeforeStatus": "CLI, durum bilgisi alınamadan kapandı",
-          "quotaFetchFailed": "Kota bilgisi alınamadı ({{status}})",
-          "geminiProjectIdLoadFailed": "Gemini proje kimliği yüklenemedi (HTTP {{status}})",
-          "geminiProjectIdMissingInResponse": "API yanıtında Gemini proje kimliği bulunamadı",
           "minimaxUsageFetchFailed": "MiniMax kullanım bilgisi alınamadı ({{status}})",
           "minimaxReturnedError": "MiniMax bir hata döndürdü",
           "minimaxInvalidUsageResponse": "MiniMax geçersiz bir kullanım yanıtı döndürdü",
@@ -7869,7 +7873,8 @@
       "removeVariableRow": "Değişkeni kaldır",
       "emptyArgument": "Boş",
       "valueNew": "Yeni değer",
-      "valueSaved": "Kaydedildi"
+      "valueSaved": "Kaydedildi",
+      "hostMcpServers": "MCP sunucularınız"
     },
     "handToBot": {
       "menu": "Bota devret…",
@@ -8132,7 +8137,13 @@
         "github": "Sorunlar ve PR’lardaki bahsetmeler ve olaylar",
         "slack": "Mesajlar ve bahsetmeler",
         "linear": "Atanan sorunlar ve bahsetmeler",
-        "google": "Sizin adınıza Gmail, Takvim ve Drive"
+        "google": "Sizin adınıza Gmail, Takvim ve Drive",
+        "clickup": "Görevleri, listeleri ve belgeleri yönet",
+        "airtable": "Tabanları, tabloları ve kayıtları sorgula ve düzenle",
+        "todoist": "Görev ekle, sırala ve tamamla",
+        "zapier": "Zapier'da kurduğun uygulamalarda eylem çalıştır",
+        "granola": "Toplantı notlarında ve dökümlerinde ara",
+        "intercom": "Konuşmalarda, kişilerde ve makalelerde ara"
       },
       "composioLine": {
         "outlook": "Posta, takvim ve kişiler",
@@ -8430,6 +8441,7 @@
       "shuffle": "Başka bir görsel",
       "namePlaceholder": "Botunuza ad verin",
       "purposeLabel": "Kimlik",
+      "purposeTooLongForHost": "{{host}} üzerindeki Orca, amaç için en fazla 200 karakter kabul ediyor. Kısaltın veya {{host}} üzerindeki Orca'yı güncelleyin.",
       "purposePlaceholder": "Kim olduğu ve ne yaptığı",
       "create": "Oluştur",
       "fromTemplate": "Şablon kullan",
@@ -8562,5 +8574,97 @@
       "needsWindow": "Güncellenemedi. {{desktop}} üzerinde Orca’yı açın.",
       "failed": "Ajan listesi güncellenemedi."
     }
+  },
+  "mcpServers": {
+    "category": {
+      "coding": "Kodlama",
+      "chat": "Sohbet",
+      "monitoring": "İzleniyor",
+      "docs": "Belgeler ve projeler",
+      "more": "Diğer"
+    },
+    "searchApps": "Uygulamalarda ara",
+    "filterActive": "Filtre, {{filter}}",
+    "filter": "Filtrele",
+    "allApps": "Tüm uygulamalar",
+    "added": "Eklendi",
+    "addTitle": "MCP sunucusu ekle",
+    "customServer": "Özel sunucu",
+    "customServerLine": "URL, komut veya yapıştırılan yapılandırma",
+    "noMatch": "“{{query}}” ile eşleşen uygulama yok.",
+    "apps": "Uygulamalar",
+    "header": "Başlık",
+    "headerName": "Ad",
+    "headerValue": "Değer",
+    "removeHeader": "Başlığı kaldır",
+    "headers": "Üstbilgiler",
+    "headerEmpty": "Boş",
+    "addHeader": "Üstbilgi ekle",
+    "addButton": "Ekle",
+    "sourceLabel": "Sunucu URL'si veya başlatma komutu",
+    "sourcePlaceholder": "https://… veya npx …",
+    "sourceNote": "Sunucu URL’sini, başlatma komutunu veya mcpServers yapılandırmasını yapıştırın.",
+    "details": "Ayrıntılar",
+    "trust": "Yalnızca güvendiğiniz yazılımları ekleyin.",
+    "serverType": "Sunucu türü",
+    "urlMode": "Bir URL'ye bağlan",
+    "commandMode": "Komut çalıştır",
+    "serverName": "Sunucu adı",
+    "headersNone": "Yok",
+    "yours": "Size ait",
+    "addServer": "Sunucu ekle",
+    "fromPlugins": "Eklentilerden",
+    "inYourAgents": "Ajanlarınızda",
+    "needsSignIn": "Oturum açılması gerekiyor",
+    "wontStart": "Başlamaz",
+    "signIn": "Oturum aç",
+    "projectsOnly": "Yalnızca {{projects}}",
+    "moreFor": "{{name}} için diğer işlemler",
+    "moveToOrca": "Orca’ya taşı",
+    "copyToOrca": "Orca’ya kopyala",
+    "signInAgain": "Yeniden oturum aç",
+    "signOut": "Oturumu kapat",
+    "workspaces": "Çalışma alanları",
+    "account": "Hesap",
+    "signedIn": "Oturum açıldı",
+    "agents": "Ajanlar",
+    "turnAllOn": "Tümünü etkinleştir",
+    "agentsUnread": "Bu bilgisayardaki ajanlar okunamadı.",
+    "advanced": "Gelişmiş",
+    "sharedProcess": "Ajanlar arasında tek bir süreç paylaş",
+    "sharedProcessNote": "Daha az bellek kullanır. Çalışma alanı klasörünün dışında çalışır.",
+    "removeServer": "Sunucuyu Kaldır",
+    "url": "URL",
+    "command": "Komut",
+    "arguments": "Bağımsız değişkenler",
+    "title": "MCP sunucuları",
+    "reading": "MCP sunucuları okunuyor…",
+    "unavailable": "{{host}} üzerinde MCP sunucuları kullanılamıyor",
+    "signedInTo": "{{app}} uygulamasında oturum açıldı",
+    "allWorkspaces": "Tüm çalışma alanları",
+    "includingLater": "Sonradan eklenenler dahil",
+    "appliesToNewNote": "Değişiklikler yeni oturumlarda geçerli olur.",
+    "allAgents": "Tüm ajanlar",
+    "agentsOf": "{{total}} sunucudan {{on}} tanesi etkin",
+    "workspacesAll": "Tümü",
+    "workspacesAllBut": "{{names}} hariç tümü",
+    "workspacesNone": "Yok",
+    "appliesToNew": "Yeni oturumlarda geçerli",
+    "restartSessions": "{{count}} oturumu yeniden başlat",
+    "restarted": "{{count}} oturum yeniden başlatıldı",
+    "agentFileTitle": "{{server}} sunucusu {{agent}} için etkinleştirilsin mi?",
+    "agentFileMessage": "Orca, MCP sunucularınızı {{agent}} ayar dosyasında ({{file}}) tutacak. Kendi eklediğiniz kayıtlar değişmeyecek.",
+    "agentFilesMessage": "Orca, MCP sunucularınızı ajanların ayar dosyalarında tutacak. Kendi eklediğiniz kayıtlar değişmeyecek.",
+    "allow": "İzin ver",
+    "removeTitle": "{{name}} kaldırılsın mı?",
+    "removeMessage": "Yeni oturumlarda bu sunucu bulunmayacak. İstediğiniz zaman yeniden ekleyebilirsiniz.",
+    "remove": "Kaldır",
+    "moveTitle": "{{name}} Orca’ya taşınsın mı?",
+    "moveMessage": "Orca, sunucuyu {{agents}} ayarlarından kaldırır ve bir yedeğini saklar.",
+    "move": "Taşı",
+    "workspacesCount": "{{count}} çalışma alanı",
+    "workspacesAllButCount": "{{count}} tanesi hariç tümü",
+    "headerMissing": "Bu sunucuyu eklemek için {{header}} alanını doldurun.",
+    "servers": "Sunucular"
   }
 }
